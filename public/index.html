@@ -708,13 +708,7 @@ What can I help you with today?</div>
 </div>
 
 <script>
-  // ── Messaging ──────────────────────────────────────────────
-const messagesEl = document.getElementById('messages');
-const typingEl = document.getElementById('typing');
-const inputEl = document.getElementById('chat-input');
-const sendBtnEl = document.getElementById('send-btn');
-  
-// ── Clock ──────────────────────────────────────────────────
+  // ── Clock ──────────────────────────────────────────────────
 function updateClock() {
   const now = new Date();
   const h = now.getHours();
@@ -725,15 +719,16 @@ updateClock();
 setInterval(updateClock, 1000);
 
 // ── State ──────────────────────────────────────────────────
-let apiKey = '';
 let history = [];
 let lastSender = null;
 
-// ── Setup ──────────────────────────────────────────────────
-const setupKey = document.getElementById('setup-key');
-const setupBtn = document.getElementById('setup-btn');
-const setupError = document.getElementById('setup-error');
+// ── DOM refs ───────────────────────────────────────────────
+const messagesEl = document.getElementById('messages');
+const typingEl = document.getElementById('typing');
+const inputEl = document.getElementById('chat-input');
+const sendBtnEl = document.getElementById('send-btn');
 
+// ── Setup ──────────────────────────────────────────────────
 function startDemo() {
   document.getElementById('setup-overlay').style.display = 'none';
   document.getElementById('chat-input').focus();
