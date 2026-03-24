@@ -609,13 +609,7 @@ html, body {
       This is a live demo of how your Instagram DMs would work.<br><br>
       <strong>You play the customer.</strong> Message the clinic like you normally would — ask about treatments, book a session, ask prices. The AI handles everything instantly.
     </div>
-    <input class="setup-input" id="setup-key" type="password" placeholder="Paste Anthropic API key..." autocomplete="off" />
     <button class="setup-btn" id="setup-btn" onclick="startDemo()">Start Demo →</button>
-    <div class="setup-error" id="setup-error"></div>
-    <div class="setup-note">
-      Your API key is never stored — only used in this browser session.<br>
-      Get one free at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>
-    </div>
   </div>
 </div>
 
@@ -743,13 +737,6 @@ setupKey.addEventListener('keydown', e => {
 });
 
 function startDemo() {
-  const k = setupKey.value.trim();
-  if (!k.startsWith('sk-ant-')) {
-    setupError.textContent = 'Please paste a valid Anthropic API key (starts with sk-ant-)';
-    setupError.style.display = 'block';
-    return;
-  }
-  apiKey = k;
   document.getElementById('setup-overlay').style.display = 'none';
   document.getElementById('chat-input').focus();
 }
