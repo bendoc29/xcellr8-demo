@@ -900,7 +900,7 @@ function setTyping(show) {
 
 async function send() {
   const text = inputEl.value.trim();
-  if (!text || !apiKey) return;
+  if (!text) return;
 
   inputEl.value = '';
   inputEl.style.height = 'auto';
@@ -942,7 +942,6 @@ async function send() {
 }
 
 function sendQ(text) {
-  if (!apiKey) return;
   inputEl.value = text;
   sendBtnEl.classList.add('active');
   send();
