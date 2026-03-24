@@ -708,6 +708,12 @@ What can I help you with today?</div>
 </div>
 
 <script>
+  // ── Messaging ──────────────────────────────────────────────
+const messagesEl = document.getElementById('messages');
+const typingEl = document.getElementById('typing');
+const inputEl = document.getElementById('chat-input');
+const sendBtnEl = document.getElementById('send-btn');
+  
 // ── Clock ──────────────────────────────────────────────────
 function updateClock() {
   const now = new Date();
@@ -727,14 +733,6 @@ let lastSender = null;
 const setupKey = document.getElementById('setup-key');
 const setupBtn = document.getElementById('setup-btn');
 const setupError = document.getElementById('setup-error');
-
-setupKey.addEventListener('input', () => {
-  setupBtn.disabled = !setupKey.value.trim().startsWith('sk-ant-');
-});
-
-setupKey.addEventListener('keydown', e => {
-  if (e.key === 'Enter') startDemo();
-});
 
 function startDemo() {
   document.getElementById('setup-overlay').style.display = 'none';
@@ -808,11 +806,6 @@ BOOKING FLOW:
 NEVER give medical advice. For anything clinical say "Worth checking with your GP first since they'll know your full history."
 NEVER make up prices you're not sure of.`;
 
-// ── Messaging ──────────────────────────────────────────────
-const messagesEl = document.getElementById('messages');
-const typingEl = document.getElementById('typing');
-const inputEl = document.getElementById('chat-input');
-const sendBtnEl = document.getElementById('send-btn');
 
 // Auto-resize textarea
 inputEl.addEventListener('input', () => {
