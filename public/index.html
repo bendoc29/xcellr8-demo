@@ -929,20 +929,11 @@ async function send() {
   await new Promise(r => setTimeout(r, 600 + Math.random() * 800));
 
   try {
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 600,
-        system: SYSTEM,
-        messages: history
-      })
-    });
+    const resp = await fetch('/api/chat', {
+     method: 'POST',
+     headers: { 'Content-Type': 'application/json' },
+     body: JSON.stringify({ messages: history, system: SYSTEM })
+   });
 
     const data = await resp.json();
     if (data.error) throw new Error(data.error.message);
